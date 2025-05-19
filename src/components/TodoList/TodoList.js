@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Header from './Header'
 import Todo from './Todo'
-
+import { Container,Row,Col } from 'react-bootstrap'
 export default class TodoList extends Component {
 
     constructor(props) {
@@ -84,17 +84,27 @@ export default class TodoList extends Component {
             <>
                 <Header />
                 <form onSubmit={this.addTodo}>
-                    <input type="text" className="todo-input" maxLength="40" value={this.state.todoTitle} onChange={this.todoTitleHandler} />
-                    <button className="todo-button" type="submit">
-                        <i className="fas fa-plus-square"></i>
-                    </button>
-                    <div className="select">
-                        <select name="todos" className="filter-todo" onChange={this.statusHandler}>
-                            <option value="all">All</option>
-                            <option value="completed">Completed</option>
-                            <option value="uncompleted">Uncompleted</option>
-                        </select>
-                    </div>
+                    <Container>
+                        <Row>
+                            <Col xs={12} md={8}>
+                                <div style={{position:"relative",margin:" 16px 0"}}>
+                                    <input type="text" className="todo-input" maxLength="40" value={this.state.todoTitle} onChange={this.todoTitleHandler} style={{width:"100%"}}/>
+                                    <button className="todo-button" type="submit" style={{position:"absolute",right:"0"}}>
+                                        <i className="fas fa-plus-square"></i>
+                                    </button>
+                                </div>
+                            </Col>
+                            <Col xs={12} md={4}>
+                                <div className="select" style={{width:"100%",marginLeft:"0px"}}>
+                                    <select name="todos" className="filter-todo" onChange={this.statusHandler} style={{width:"100%"}}>
+                                        <option value="all">All</option>
+                                        <option value="completed">Completed</option>
+                                        <option value="uncompleted">Uncompleted</option>
+                                    </select>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
                 </form>
 
                 <div className="todo-container">
