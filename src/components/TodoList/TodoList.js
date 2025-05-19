@@ -7,8 +7,6 @@ export default class TodoList extends Component {
     constructor(props) {
         super(props)
 
-        console.log('TodoList.js => constructor');
-
         this.state = {
             todos: [],
             todoTitle: '',
@@ -21,23 +19,6 @@ export default class TodoList extends Component {
         this.todoTitleHandler = this.todoTitleHandler.bind(this)
         this.statusHandler = this.statusHandler.bind(this)
 
-    }
-
-    static getDerivedStateFromProps () {
-        console.log('TodoList.js => getDerivedStateFromProps');
-    }
-
-    shouldComponentUpdate () {
-        console.log('TodoList.js => shouldComponentUpdate');
-        return true
-    }
-
-    componentDidMount () {
-        console.log('TodoList.js => componentDidMount');
-    }
-
-    componentDidUpdate () {
-        console.log('TodoList.js => componentDidUpdate');
     }
 
     todoTitleHandler(event) {
@@ -98,7 +79,6 @@ export default class TodoList extends Component {
     }
 
     render() {
-        console.log('TodoList.js => render');
 
         return (
             <>
